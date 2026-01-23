@@ -39,8 +39,8 @@ export default function VideoCompressor() {
       coreURL: await toBlobURL(`${baseURL}/ffmpeg-core.js`, "text/javascript"),
       wasmURL: await toBlobURL(`${baseURL}/ffmpeg-core.wasm`, "application/wasm"),
       log: true,
-    });
-
+    }); 
+    
     setLoaded(true);
     setLoading(false);
   }
@@ -133,15 +133,15 @@ export default function VideoCompressor() {
               {!cancel && <p>🐾 Compression en cours... 🐾</p> }
               <ProgressBar percent={ progress } />
 
-              { !cancel ?
+              { !cancel &&
                 <button onClick={ cancelCompression } className="cancel-btn">
                   Annuler
                 </button>
-                : 
-                <p>Compression annulée (rafraîchir navigateur pour nouvelle compression)</p>
               }
             </div>
           }
+
+          { cancel && <p>Compression annulée (rafraîchir navigateur pour nouvelle compression)</p>}
 
           {output && (
             <div>
