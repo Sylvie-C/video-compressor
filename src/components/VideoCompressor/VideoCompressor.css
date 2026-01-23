@@ -1,0 +1,45 @@
+.input-container {
+    margin: 10px; 
+}
+
+.load-btn, .cancel-btn { margin: 4px; }
+
+.load-btn , .cancel-btn , .download-link {
+    background: aqua; 
+    color: #390068;
+
+    transition: all 0.3s ease-in-out; 
+}
+
+.load-btn:hover , .cancel-btn:hover , .download-link:hover { 
+    background: #390068; 
+    color: aqua; 
+    border: none; 
+
+    transition: all 0.3s ease-in-out; 
+}
+
+.loading-container {
+    display: flex; 
+    flex-direction: column; 
+    align-items: center; 
+}
+
+.output-container { 
+  display: flex; 
+  flex-direction: column; 
+  align-items: center; 
+}
+
+.video-output { 
+  margin: 20px 0 50px 0; 
+}
+
+.download-link { 
+  margin: 10px; 
+  padding: 4px 10px; 
+  border-radius: 10px; 
+  width: fit-content; 
+
+  text-decoration: none; 
+}

@@ -1,0 +1,43 @@
+.progress-container, .progress-background, .progress-bar { 
+    height: 20px; 
+    border-radius: 10px;
+}
+
+.progress-container { 
+    margin: 20px; 
+    width: 300px; 
+    background: #e2ccff; 
+
+    position: relative; 
+}
+
+.progress-bar { 
+    background: linear-gradient(to right , #f58bff , #390068); 
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+}
+
+.progress-background { 
+  display: flex; 
+  justify-content: space-between; 
+  align-items: center; 
+}
+
+.progress-background span { 
+  background: black; 
+  border-radius: 20px; 
+}
+
+.cat-icon { 
+  z-index: 100; 
+}
+
+.cat-animate { 
+  animation: pulseScale 0.3s ease-in-out 7 alternate; 
+} 
+
+@keyframes pulseScale { 
+  from { transform: scale(100%); } 
+  to { transform: scale(150%); } 
+}
