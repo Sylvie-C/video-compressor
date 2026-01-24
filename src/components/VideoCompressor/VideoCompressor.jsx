@@ -111,39 +111,39 @@ export default function VideoCompressor() {
 
       {loaded && (
         <>
-          <input
-            type="file"
-            onChange={(e) => compressVideo(e.target.files?.[0])}
-            disabled={loading}
+          { !output ? 
+          <>
+              <input
+                type="file"
+                onChange={(e) => compressVideo(e.target.files?.[0])}
+                disabled={loading}
+                className="input-container"
+              />
+              { fileInSize && <p>Votre fichier fait {fileInSize} Mo. </p>}
 
-            className="input-container"
-          />
-
-          { fileInSize && <p>Votre fichier fait {fileInSize} Mo. </p>}
-
-          { (error && !cancel) && 
-            <>
-              <p> {error} </p>
-              <p>Rafraîchir le navigateur pour recommencer</p>
-            </>
-          }
-
-          {(loading && !error) &&
-            <div className="loading-container">
-              {!cancel && <p>🐾 Compression en cours... 🐾</p> }
-              <ProgressBar percent={ progress } />
-
-              { !cancel &&
-                <button onClick={ cancelCompression } className="cancel-btn">
-                  Annuler
-                </button>
+              { (error && !cancel) && 
+                <>
+                  <p> {error} </p>
+                  <p>Rafraîchir le navigateur pour recommencer</p>
+                </>
               }
-            </div>
-          }
 
-          { cancel && <p>Compression annulée (rafraîchir navigateur pour nouvelle compression)</p>}
+            {(loading && !error) &&
+              <div className="loading-container">
+                {!cancel && <p>🐾 Compression en cours... 🐾</p> }
+                <ProgressBar percent={ progress } />
 
-          {output && (
+                { !cancel &&
+                  <button onClick={ cancelCompression } className="cancel-btn">
+                    Annuler
+                  </button>
+                }
+              </div>
+            }
+
+            { cancel && <p>Compression annulée (rafraîchir navigateur pour nouvelle compression)</p>}
+          </>
+            : 
             <div>
               <div className="output-container">
                 <p>Votre vidéo est prête et fait maintenant {fileOutSize} Mo. </p> 
@@ -155,7 +155,7 @@ export default function VideoCompressor() {
 
               </div>
             </div>
-          )}
+          }
         </>
       )}
     </main>
