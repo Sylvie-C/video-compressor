@@ -105,7 +105,7 @@ export default function VideoCompressor() {
     <main className="content">
       {!loaded && (
         <button onClick={loadFFmpeg} disabled={loading} className="load-btn">
-          {loading ? "C'est parti..." : "Commencer"}
+          {loading ? "C'est parti ! Un instant svp..." : "Commencer"}
         </button>
       )}
 
